@@ -1,15 +1,17 @@
-const express = require("express");
-const cors = require("cors");
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-const app = express();
-app.use(cors());
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
-app.get("/find",(req,res) => {
-	let num = req.query.number;
-	let n = parseFloat(num);
-	let r = n**0.5;
-	let msg = "Square Root = " + r.toFixed(2);
-	res.json({"msg" : msg})
-});
-
-app.listen(9000, () => { console.log("ready @ 9000"); })
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
